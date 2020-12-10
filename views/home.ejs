@@ -1,0 +1,48 @@
+<script>
+    var statusObj = <%-JSON.stringify(status)%>;
+</script>
+<%  var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Today"]; 
+    var remove = "Removed Succesfully";
+%>
+
+<div id="habit-container">
+    <% if(status.length == 0) { %>
+        <span style="margin-left: 5px">No Status...</span>
+    <%} %>
+    <%for(let i = 0; i < status.length; i++) { %>
+        <div class="status-header">
+            <h2 id="status-heading"><%= status[i].status %>:</h2>
+            <a href="/delete-status/?id=<%= status[i].id%>&remove=<%= remove %>"><i class="far fa-trash-alt"></i></a>
+        </div>
+        <div class="habit">            
+            <% for(let j = 0; j < 7; j++) { %>
+                <div class="day">
+                    <h4 id="date"><%= j+10 %>.  (<%= week[j] %>)</h4>
+                    <% var bColor = ''; var icon = '';
+                        if(status[i].button[j] === 'Done'){
+                                bColor = "rgb(139, 245, 139)";
+                                icon = "&#10004;"
+                            }else if(status[i].button[j] === 'Not Done'){
+                                bColor = "rgb(255, 64, 64)";
+                                icon = "&#10006;"
+                            }else{
+                                bColor = " rgb(253, 182, 51)";
+                                icon = "&#9888;"
+                        } 
+                    %>
+                    <button class="status-button" 
+                        style="background-color: <%= bColor %>" 
+                        onclick="func(statusObj[<%=i %>], <%=j %>)">
+                        <%= status[i].button[j] %>
+                        <%- icon %>
+                    </button>
+                </div>  
+            <%}%>
+        </div>  
+        <% if(i < status.length-1) { %>
+            <span class="line"></span>
+        <%} %>
+    <%}%>           
+</div> 
+<script src="./js/index.js"></script>
+    

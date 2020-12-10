@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>    
+    <%
+        var add_msg = "Added Succesfully!";
+    %>
+    <div id="notification"></div>  
+    
+    <nav>
+        <h1 id="logo">Habit Tracker</h1>
+        <div class="right-nav">
+            <a class="right-nav-item" href="/all-habits">All Habits</a>
+            <a class="right-nav-item" href="/">Week Details</a>
+        </div>
+    </nav>
+    <form action="/create-status/?add=<%= add_msg %>" method="post">
+        <input name="status" type="text" id="search-box" placeholder="Add-Habit"><input type="submit" id="add-button" value="Add">        
+    </form>
+
+    <%- body %>
+    <script>
+        const notification = document.getElementById('notification');
+
+        function showNotification(params) {
+            notification.style.display = 'block';
+            notification.innerText = params;
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        var remove = <% typeof remove %>
+        console.log('hihihihii', remove);
+        
+        <% if(typeof remove != 'undefined'){ %> 
+            var remove = "<%= remove %>";
+            showNotification(remove);
+        <%} %>
+
+        <% if(typeof add != 'undefined'){ %> 
+            var add = "<%= add %>";
+            showNotification(add);
+        <%} %>
+
+    </script>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>

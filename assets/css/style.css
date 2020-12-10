@@ -1,0 +1,216 @@
+*
+{   
+    font-family: 'Castoro', serif;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color:rgb(253, 235, 238);
+}
+nav{
+    background-color: rgb(118, 118, 235);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+#logo   
+{
+    text-align: center;
+    width: 16%;
+    font-size: 28px;
+    padding: 5px 0 10px;
+    margin: 5px;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Sansita Swashed', cursive;
+    display: inline-block;
+}
+
+#notification
+{
+    display: none;
+    position: fixed;
+    padding: 10px 20px;
+    top: 75px;
+    right: 15px;
+    border-radius: 5px;
+    background-color: greenyellow;
+}
+
+.right-nav{
+    display: inline-block;
+    float: right;
+    color: white;
+    margin: 18px;
+}
+
+.right-nav-item{
+    margin: 5px;
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.habit{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.one-habit
+{
+    display: flex;
+    position: relative;
+    /* margin: 5px auto 5px; */
+    padding: 10px 0;
+}
+
+.one-habit:hover{
+    background-color:rgb(223, 219, 219);
+}
+
+.status-header
+{
+    display: flex;
+    position: relative;
+}
+
+i
+{
+    position: absolute;
+    right: 15px;
+    margin: 5px 0px 5px 8px;
+    font-size: 23px;
+}
+
+.line{
+    width: 90%;
+    margin: 20px auto 10px;
+    border-bottom: 1.5px solid black;
+    display: block;
+}
+
+.all-line{
+    border-bottom: 1.5px solid black;
+    display: block;
+}
+
+#date
+{
+    margin: 5px 0;
+}
+
+#status-heading
+{
+    margin: 0 0px 5px 8px;
+}
+
+.day{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    margin: 5px;
+    background-color:rgb(196, 196, 223);
+    width: 14%;
+}
+
+.status-button{
+    height: 30px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: rgb(252, 63, 63);
+    outline: none;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+#habit-container
+{
+    padding: 10px 0px;
+    margin: 2% 0 0 10%;
+    box-shadow: 0px 0px 7px 0px  rgb(170, 108, 118);
+    width: 80%;
+    background-color: rgb(236, 235, 235);
+}
+
+.all-habit-container{  
+    margin: 20px auto;
+    box-shadow: 0px 0px 7px 0px  rgb(170, 108, 118);
+    background-color: rgb(236, 235, 235);
+    width: 50%;
+}
+
+#search-box
+{
+    height: 30px;
+    width: 40%;
+    font-size: 20px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-left: 27%;
+    border: 2px solid rgb(176, 176, 248);
+    outline: none;
+    font-family: 'Castoro', serif;
+}
+#add-button
+{
+    font-family: 'Castoro', serif;
+    font-weight: bold;
+    height: 44px;
+    font-size: 20px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 0;
+    background-color:  rgb(118, 118, 235);
+    color: white;
+    border: 0px;
+    padding: 5px 15px;
+    outline: none;
+    cursor: pointer;
+}
+#taskContainer
+{
+    margin: auto;    
+    width: 60%;
+    text-align: center;
+}
+li
+{
+    list-style: none;
+    display: flex;
+    margin: 10px;
+    font-size: 20px;
+    position: relative;
+}
+
+li label
+{
+    cursor: pointer;
+    margin: 0px 10px;
+    text-align: left;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.delete-img
+{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    
+}
+.checkbox
+{
+    margin: 6px 0; 
+    cursor: pointer;   
+}
+.checkbox:checked ~label
+{
+    text-decoration: line-through;
+}
