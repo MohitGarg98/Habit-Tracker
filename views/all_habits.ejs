@@ -1,15 +1,16 @@
-<div class="all-habit-container">
+<link rel="stylesheet" href="./css/all_habits.css">
+<div class="habits-container">
     <% var remove = "Removed Succeully!" %>
-    <% if(status.length == 0) { %>
-        <span style="margin: 10px; font-size: 19px;">No Status...</span>
+    <% if(habits.length == 0) { %>
+        <span style="margin: 10px; font-size: 19px;">No habits...</span>
     <%} %>
-    <%for(let i = 0; i < status.length; i++) { %>
-        <div class="one-habit">
-            <h2 id="status-heading"><%= status[i].status %>:</h2>
-            <a class="abc" href="/delete-status/?id=<%= status[i].id%>&remove=<%= remove %>"><i class="far fa-trash-alt"></i></a>
+    <%for(let i = 0; i < habits.length; i++) { %>
+        <div class="habit">
+            <h2 id="habit-heading"><%= habits[i].habit %>:</h2>
+            <a href="/delete-habit/?id=<%= habits[i].id%>&remove=<%= remove %>"><i class="far fa-trash-alt"></i></a>
         </div>
-        <% if(i < status.length-1) { %>
-            <span class="all-line"></span>
+        <% if(i < habits.length-1) { %>
+            <span class="line"></span>
         <%} %>
     <%}%>
 </div>

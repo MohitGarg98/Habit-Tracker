@@ -1,28 +1,28 @@
-<script>
-    var statusObj = <%-JSON.stringify(status)%>;
-</script>
+<link rel="stylesheet" href="./css/home.css">
+
 <%  var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Today"]; 
-    var remove = "Removed Succesfully";
+    var remove = "Removed Succesfully!";
+    var habitsArr = JSON.stringify(habits);
 %>
 
-<div id="habit-container">
-    <% if(status.length == 0) { %>
-        <span style="margin-left: 5px">No Status...</span>
+<div id="habits-container">
+    <% if(habits.length == 0) { %>
+        <span style="margin-left: 5px">No habits...</span>
     <%} %>
-    <%for(let i = 0; i < status.length; i++) { %>
-        <div class="status-header">
-            <h2 id="status-heading"><%= status[i].status %>:</h2>
-            <a href="/delete-status/?id=<%= status[i].id%>&remove=<%= remove %>"><i class="far fa-trash-alt"></i></a>
+    <%for(let i = 0; i < habits.length; i++) { %>
+        <div class="habit-header">
+            <h2 id="habit-heading"><%= habits[i].habit %>:</h2>
+            <a href="/delete-habit/?id=<%= habits[i].id%>&remove=<%= remove %>"><i class="far fa-trash-alt"></i></a>
         </div>
         <div class="habit">            
             <% for(let j = 0; j < 7; j++) { %>
                 <div class="day">
                     <h4 id="date"><%= j+10 %>.  (<%= week[j] %>)</h4>
                     <% var bColor = ''; var icon = '';
-                        if(status[i].button[j] === 'Done'){
+                        if(habits[i].status[j] === 'Done'){
                                 bColor = "rgb(139, 245, 139)";
                                 icon = "&#10004;"
-                            }else if(status[i].button[j] === 'Not Done'){
+                            }else if(habits[i].status[j] === 'Not Done'){
                                 bColor = "rgb(255, 64, 64)";
                                 icon = "&#10006;"
                             }else{
@@ -32,14 +32,14 @@
                     %>
                     <button class="status-button" 
                         style="background-color: <%= bColor %>" 
-                        onclick="func(statusObj[<%=i %>], <%=j %>)">
-                        <%= status[i].button[j] %>
+                        onclick="func(<%= habitsArr %>[<%=i %>], <%=j %>)">
+                        <%= habits[i].status[j] %>
                         <%- icon %>
                     </button>
                 </div>  
             <%}%>
         </div>  
-        <% if(i < status.length-1) { %>
+        <% if(i < habits.length-1) { %>
             <span class="line"></span>
         <%} %>
     <%}%>           

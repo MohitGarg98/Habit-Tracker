@@ -1,18 +1,17 @@
 const mongoose = require('mongoose');
 
-const statusSchema = new mongoose.Schema({
+const habitSchema = new mongoose.Schema({
 
-    status: {
+    habit: {
         type: String,
         required: true
     },
-    button: {
+    status: {
         type: Array, 
         "default": ["Not Done", "Not Done", "Not Done", "Not Done", "Not Done", "Not Done", "Not Done"]
     }
 })
 
+const Habit = mongoose.model('Habit', habitSchema);
 
-const Status = mongoose.model('Status', statusSchema);
-
-module.exports = Status;
+module.exports = Habit;

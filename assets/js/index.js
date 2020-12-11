@@ -1,5 +1,5 @@
-function func(statusObj, index) {
-    statusObj = JSON.stringify(statusObj);
-    window.location = '/change-button-content/?status=' +statusObj+ '&index=' +index;
-    console.log('after');
+function func(habitsObj, index) {
+     console.log('after');
+    habitsObj = JSON.stringify(habitsObj);
+    window.location = '/change-status/?status=' +habitsObj+ '&index=' +index;
 }
